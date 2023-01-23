@@ -2,6 +2,27 @@ public class BankAccount
 {
     private float balance;
     private string accountNumber;
+    private Customer customer;
+
+    public Customer GetCustomer()
+    {
+        return customer;
+    }
+
+    public void SetCustomer(Customer customer)
+    {
+        this.customer = customer;
+    }
+
+    public void SetAccountNumber(string accountNumber)
+    {
+        this.accountNumber = accountNumber;
+    }
+
+    public string GetAccountNumber()
+    {
+        return this.accountNumber;
+    }
 
     // Deposit features:
     // - Returns the updated balance

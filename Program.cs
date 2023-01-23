@@ -5,10 +5,11 @@
 
         c.SetCustomerInfo("Raphael", "Alampay", "B");
 
-        Console.WriteLine("Customer Info: " + c.CustomerInfo());
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.SetAccountNumber("060081");
+        bankAccount.SetCustomer(c);
 
-        c.SetFirstName("Leonardo");
-
-        Console.WriteLine("Customer Info: " + c.CustomerInfo());
+        Console.WriteLine("Bank Account: " + bankAccount.GetAccountNumber());
+        Console.WriteLine("Customer: " + bankAccount.GetCustomer().FullName());
     }
 }
