@@ -8,10 +8,24 @@ namespace CSharpDemo
             private string accountNumber;
             private Customer customer;
 
+            private List<Transaction> transactions;
+
             public BankAccount(string accountNumber, Customer customer)
             {
                 this.accountNumber = accountNumber;
                 this.customer = customer;
+
+                this.transactions = new List<Transaction>();
+            }
+
+            public List<Transaction> GetTransactions()
+            {
+                return this.transactions;
+            }
+
+            public void AddTransaction(Transaction t)
+            {
+                this.transactions.Add(t);
             }
 
             public Customer GetCustomer()

@@ -24,7 +24,7 @@ namespace CSharpDemo
 
             4. Display a menu that contains the following:
 
-            1 - Deposit
+            1 - Deposit  
             2 - Withdraw
             3 - View Balance
             ==================
@@ -38,8 +38,6 @@ namespace CSharpDemo
             6. Before the program ends, display the transactions of the bank account.
 
             **/
-            /*
-            List<BankAccount> bankAccounts = new List<BankAccount>();
 
             // Ask user to input details of customer
             Console.Write("Enter First Name: ");
@@ -63,10 +61,68 @@ namespace CSharpDemo
             // Create a bank account and assign created customer
             BankAccount bankAccount = new BankAccount(accountNumber, c);
             Console.WriteLine("Bank Account " + bankAccount.GetAccountNumber() + " created for customer " + bankAccount.GetCustomer().FullName());
-        
-            // Inserts a bankAccount which is of type BankAccount into bankAccounts
-            bankAccounts.Add(bankAccount);
-            */
+
+            // Create the menu
+            Console.WriteLine("1 - Deposit");
+            Console.WriteLine("2 - Withdraw");
+            Console.WriteLine("3 - View Balance");
+            Console.WriteLine("====================");
+            Console.Write("Enter Number: ");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                // Perform Deposit
+                Console.Write("Enter Amount: ");
+                float amount = float.Parse(Console.ReadLine());
+                string transactionType = "D";
+
+                bankAccount.Deposit(amount);
+
+                Transaction t = new Transaction(amount, transactionType);
+                bankAccount.AddTransaction(t);
+            }
+            else if (choice == 2)
+            {
+                // Perform Withdrawal
+                Console.Write("Enter Amount: ");
+                float amount = float.Parse(Console.ReadLine());
+                string transactionType = "W";
+
+                bool isSuccessful = bankAccount.Withdraw(amount);
+
+                if (isSuccessful)
+                {
+                    Transaction t = new Transaction(amount, transactionType);
+                    bankAccount.AddTransaction(t);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid amount: " + amount);
+                }
+            }
+            else if (choice == 3)
+            {
+                // Display Balance
+                Console.WriteLine("Account Number: " + bankAccount.GetAccountNumber());
+                Console.WriteLine("Balance: " + bankAccount.View());
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice: " + choice);
+            }
+
+            Console.WriteLine("Transactions:");
+            Console.WriteLine("===================");
+
+            for (int i = 0; i < bankAccount.GetTransactions().Count; i++)
+            {
+                Transaction t = bankAccount.GetTransactions()[i];
+                Console.WriteLine("Transaction Type: " + t.GetTransactionType());
+                Console.WriteLine("Amount: " + t.GetAmount());
+                Console.WriteLine("===================");
+            }
         }
     }
 }
