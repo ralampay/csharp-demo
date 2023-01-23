@@ -1,15 +1,28 @@
 ﻿public class Program
 {
-    static void Main(string[] args) {
-        Customer c = new Customer();
+    static void Main(string[] args)
+    {
+        // Ask user to input details of customer
+        Console.Write("Enter First Name: ");
+        string firstName = Console.ReadLine();
 
-        c.SetCustomerInfo("Raphael", "Alampay", "B");
+        Console.Write("Enter Middle Name: ");
+        string middleName = Console.ReadLine();
 
-        BankAccount bankAccount = new BankAccount();
-        bankAccount.SetAccountNumber("060081");
-        bankAccount.SetCustomer(c);
+        Console.Write("Enter Last Name: ");
+        string lastName = Console.ReadLine();
 
-        Console.WriteLine("Bank Account: " + bankAccount.GetAccountNumber());
-        Console.WriteLine("Customer: " + bankAccount.GetCustomer().FullName());
+        // Create an instance of a customer
+        Customer c = new Customer(firstName, middleName, lastName);
+
+        Console.WriteLine("Customer created: " + c.FullName());
+
+        // Ask user to input account number
+        Console.Write("Enter Account Number: ");
+        string accountNumber = Console.ReadLine();
+
+        // Create a bank account and assign created customer
+        BankAccount bankAccount = new BankAccount(accountNumber, c);
+        Console.WriteLine("Bank Account " + bankAccount.GetAccountNumber() + " created for customer " + bankAccount.GetCustomer().FullName());
     }
 }

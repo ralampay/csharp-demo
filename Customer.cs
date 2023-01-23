@@ -4,6 +4,13 @@ public class Customer
     private string lastName;
     private string middleName;
 
+    public Customer(string firstName, string middleName, string lastName)
+    {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+    }
+
     public string CustomerInfo() {
         string info = this.lastName + ", " + this.firstName + " " + this.middleName;
 

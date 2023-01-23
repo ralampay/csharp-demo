@@ -4,6 +4,12 @@ public class BankAccount
     private string accountNumber;
     private Customer customer;
 
+    public BankAccount(string accountNumber, Customer customer)
+    {
+        this.accountNumber = accountNumber;
+        this.customer = customer;
+    }
+
     public Customer GetCustomer()
     {
         return customer;
