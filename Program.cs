@@ -1,4 +1,5 @@
 ﻿using CSharpDemo.Models;
+using System.Collections;
 
 namespace CSharpDemo
 {
@@ -6,6 +7,8 @@ namespace CSharpDemo
     {
         static void Main(string[] args)
         {
+            List<BankAccount> bankAccounts = new List<BankAccount>();
+
             // Ask user to input details of customer
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();
@@ -28,6 +31,9 @@ namespace CSharpDemo
             // Create a bank account and assign created customer
             BankAccount bankAccount = new BankAccount(accountNumber, c);
             Console.WriteLine("Bank Account " + bankAccount.GetAccountNumber() + " created for customer " + bankAccount.GetCustomer().FullName());
+        
+            // Inserts a bankAccount which is of type BankAccount into bankAccounts
+            bankAccounts.Add(bankAccount);
         }
     }
 }
