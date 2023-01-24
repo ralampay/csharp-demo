@@ -9,7 +9,28 @@ namespace CSharpDemo
         {
             Customer c = new Customer("A", "B", "C");
             CheckingAccount checkingAccount = new CheckingAccount("060081", c);
+            PassbookAccount passbookAccount = new PassbookAccount("060082", c, "PASS12345");
 
+            List<BankAccount> bankAccounts = new List<BankAccount>();
+            bankAccounts.Add(checkingAccount);
+            bankAccounts.Add(passbookAccount);
+
+            foreach (BankAccount b in bankAccounts)
+            {
+                if (b.GetType() == typeof(CheckingAccount))
+                {
+                    // Typecasting temp to be treated as a CheckingAccount
+                    CheckingAccount temp = (CheckingAccount)b;
+                    Console.WriteLine("temp is a CheckingAccount");
+                }
+                else if (b.GetType() == typeof(PassbookAccount))
+                {
+                    PassbookAccount temp = (PassbookAccount)b;
+                    Console.WriteLine("temp is a PassbookAccount");
+                }
+            }
+
+            /*
             Console.WriteLine("Account Number: " + checkingAccount.GetAccountNumber());
             Console.WriteLine("Num of Checks: " + checkingAccount.CheckBook.Count);
 
