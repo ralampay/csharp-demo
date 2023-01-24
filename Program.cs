@@ -7,6 +7,16 @@ namespace CSharpDemo
     {
         static void Main(string[] args)
         {
+            Customer c = new Customer("A", "B", "C");
+            CheckingAccount checkingAccount = new CheckingAccount("060081", c, 10);
+
+            Console.WriteLine("Account Number: " + checkingAccount.GetAccountNumber());
+            Console.WriteLine("Num of Checks: " + checkingAccount.CheckBook.Count);
+
+            foreach(Check check in checkingAccount.CheckBook)
+            {
+                Console.WriteLine(check.CheckNumber + ": " + check.Amount);
+            }
             /**
             EXERCISE: 
 
@@ -40,7 +50,7 @@ namespace CSharpDemo
             **/
 
             // Ask user to input details of customer
-
+            /*
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();
 
@@ -149,6 +159,7 @@ namespace CSharpDemo
             }
 
             Console.WriteLine("Done.");
+            */
         }
     }
 }

@@ -4,7 +4,7 @@ namespace CSharpDemo
     {
         public class Branch
         {
-            public int Id { get; }
+            public int Id { get; private set; }
             // Property with get and set
             public string Name { get; set; }
 
