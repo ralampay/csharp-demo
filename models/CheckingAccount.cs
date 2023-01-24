@@ -6,6 +6,7 @@ namespace CSharpDemo.Models
 
         public static int DEFAULT_NUM_CHECKS = 10;
 
+        // Use base to invoke the parent constructor
         public CheckingAccount(string accountNumber, Customer customer)
             : base(accountNumber, customer)
         {
