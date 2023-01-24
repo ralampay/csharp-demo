@@ -15,6 +15,11 @@ namespace CSharpDemo
                 this.lastName = lastName;
             }
 
+            public Customer()
+            {
+                // Customer c = new Customer()
+            }
+
             public string CustomerInfo()
             {
                 string info = this.lastName + ", " + this.firstName + " " + this.middleName;

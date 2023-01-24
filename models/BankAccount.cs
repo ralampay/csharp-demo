@@ -8,6 +8,15 @@ namespace CSharpDemo
             private string accountNumber;
             private Customer customer;
 
+            // Property Balance linked to attribute balance
+            public float Balance
+            {
+                get
+                {
+                    return this.balance;
+                }
+            }
+
             private List<Transaction> transactions;
 
             public BankAccount(string accountNumber, Customer customer)
