@@ -85,6 +85,11 @@ namespace CSharpDemo
                     return true;
                 }
             }
+
+            public void DisplayBalance()
+            {
+                Console.WriteLine("Balance: " + this.balance);
+            }
         }
     }
 }

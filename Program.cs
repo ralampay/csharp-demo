@@ -8,7 +8,7 @@ namespace CSharpDemo
         static void Main(string[] args)
         {
             Customer c = new Customer("A", "B", "C");
-            CheckingAccount checkingAccount = new CheckingAccount("060081", c, 10);
+            CheckingAccount checkingAccount = new CheckingAccount("060081", c);
 
             Console.WriteLine("Account Number: " + checkingAccount.GetAccountNumber());
             Console.WriteLine("Num of Checks: " + checkingAccount.CheckBook.Count);
@@ -17,6 +17,12 @@ namespace CSharpDemo
             {
                 Console.WriteLine(check.CheckNumber + ": " + check.Amount);
             }
+
+            BankAccount bankAccount = new BankAccount("060082", c);
+
+            checkingAccount.DisplayBalance();
+            Console.WriteLine("=====================");
+            bankAccount.DisplayBalance();
             /**
             EXERCISE: 
 

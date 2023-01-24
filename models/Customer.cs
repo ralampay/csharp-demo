@@ -55,6 +55,24 @@ namespace CSharpDemo
             {
                 this.middleName = middleName;
             }
+
+            public void SetName(string firstName)
+            {
+                this.firstName = firstName;
+            }
+
+            public void SetName(string firstName, string middleName)
+            {
+                this.firstName = firstName;
+                this.middleName = middleName;
+            }
+
+            public void SetName(string firstName, string middleName, string lastName)
+            {
+                this.SetName(firstName);
+                this.middleName = middleName;
+                this.lastName = lastName;
+            }
         }
     }
 }
